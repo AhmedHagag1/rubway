@@ -414,13 +414,13 @@ export default function HomePage() {
 
     try {
       await addRecipientDetails(transfer.id, {
-  recipient_name: recipientName.trim(),
-  recipient_phone: recipientPhone.trim(),
-  bank_name: bankName.trim(),
-  card_number: cardNumber.trim() || null,
-  account_number: accountNumber.trim() || null,
-  sbp_phone: sbpPhone.trim() || null,
-});
+        recipient_name: recipientName.trim(),
+        recipient_phone: recipientPhone.trim() || null,
+        bank_name: bankName.trim() || null,
+        card_number: cardNumber.trim() || null,
+        account_number: accountNumber.trim() || null,
+        sbp_phone: sbpPhone.trim() || null,
+      });
 
       const updated = await getTransferTracking(transfer.id);
       setTracking(updated);
@@ -521,10 +521,10 @@ export default function HomePage() {
         <div className="mx-auto flex min-h-20 w-full max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
           <a href="#top" className="flex min-w-0 items-center gap-3" aria-label="RUBWAY home">
             <Image
-              src="/rubway-logo-dark.jpg"
+              src="/rubway-logo-original.jpg"
               alt="RUBWAY"
-              width={490}
-              height={140}
+              width={1071}
+              height={501}
               priority
               sizes="(max-width: 640px) 205px, 245px"
               className="h-12 w-auto max-w-[205px] rounded-xl object-cover object-left shadow-lg sm:h-14 sm:max-w-[245px]"
@@ -539,7 +539,6 @@ export default function HomePage() {
           </nav>
           <div className="flex items-center gap-2">
             <a href="#transfer" className="hidden rounded-xl bg-[#F2B705] px-5 py-3 text-sm font-black text-[#0D1B2A] shadow-lg shadow-amber-500/25 transition hover:-translate-y-0.5 hover:brightness-105 sm:inline-flex">ابدأ الآن</a>
-            <a href="/login" className="hidden rounded-xl border border-[#F2B705]/70 px-4 py-2.5 text-sm font-bold text-[#F2B705] transition hover:bg-[#F2B705] hover:text-[#0D1B2A] md:inline-flex">دخول الإدارة</a>
             <button type="button" aria-label="فتح القائمة" aria-expanded={mobileMenuOpen} onClick={() => setMobileMenuOpen((value) => !value)} className="flex h-11 w-11 items-center justify-center rounded-xl border border-white/15 bg-white/5 text-xl lg:hidden">
               {mobileMenuOpen ? "×" : "☰"}
             </button>
@@ -551,7 +550,6 @@ export default function HomePage() {
               {[['#transfer','ابدأ التحويل'],['#why','لماذا RUBWAY'],['#how','كيفية التحويل'],['#support','الدعم'],['#faq','الأسئلة الشائعة']].map(([href,label]) => (
                 <a key={href} href={href} onClick={() => setMobileMenuOpen(false)} className="rounded-xl px-4 py-3 font-bold transition hover:bg-white/10 hover:text-[#F2B705]">{label}</a>
               ))}
-              <a href="/login" className="mt-1 rounded-xl border border-[#F2B705]/50 px-4 py-3 text-center font-black text-[#F2B705]">دخول الإدارة</a>
             </div>
           </nav>
         )}
@@ -1167,10 +1165,10 @@ export default function HomePage() {
       <footer className="border-t border-white/10 bg-[#071426] py-8 text-white">
         <div className="mx-auto flex w-full max-w-7xl flex-col items-center justify-between gap-5 px-4 text-center sm:px-6 md:flex-row md:text-right lg:px-8">
           <Image
-            src="/rubway-logo-dark.jpg"
+            src="/rubway-logo-original.jpg"
             alt="RUBWAY"
-            width={490}
-            height={140}
+            width={1071}
+            height={501}
             sizes="192px"
             className="h-12 w-auto rounded-lg object-cover object-left"
           />

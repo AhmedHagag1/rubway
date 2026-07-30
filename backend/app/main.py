@@ -13,16 +13,19 @@ app = FastAPI(
     description="Backend API for EGP to RUB transfer operations",
 )
 
+
 allowed_origins = {
     "http://localhost:3000",
     "http://127.0.0.1:3000",
 }
+
 if FRONTEND_URL:
     allowed_origins.add(FRONTEND_URL.rstrip("/"))
 
 app.add_middleware(
     CORSMiddleware,
     allow_origins=sorted(allowed_origins),
+    allow_origin_regex=r"https://.*\.vercel\.app",
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

@@ -15,6 +15,9 @@ from app.api.v1.endpoints.transfers import (
 from app.api.v1.endpoints.telegram_bot import (
     router as telegram_bot_router,
 )
+from app.api.v1.endpoints.pricing import (
+    router as pricing_router,
+)
 
 
 api_router = APIRouter()
@@ -23,4 +26,5 @@ api_router.include_router(auth_router)
 api_router.include_router(transfers_router)
 api_router.include_router(admin_transfers_router)
 api_router.include_router(payment_accounts_router)
+api_router.include_router(pricing_router)
 api_router.include_router(telegram_bot_router)

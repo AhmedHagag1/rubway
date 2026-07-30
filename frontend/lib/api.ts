@@ -1,3 +1,5 @@
+import type { PricingSettings, PricingUpdate } from "@/types/pricing";
+
 import type {
   AdminProfile,
   LoginResponse,
@@ -598,4 +600,23 @@ export async function updatePaymentAccount(
   );
 
   return response.json() as Promise<PaymentAccount>;
+}
+
+/* =========================
+   Admin pricing endpoints
+========================= */
+
+
+export async function getPricingSettings(): Promise<PricingSettings> {
+  const response = await authenticatedRequest("/admin/pricing", { method: "GET" });
+  return response.json() as Promise<PricingSettings>;
+}
+
+export async function updatePricingSettings(data: PricingUpdate): Promise<PricingSettings> {
+  const response = await authenticatedRequest("/admin/pricing", {
+    method: "PUT",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data),
+  });
+  return response.json() as Promise<PricingSettings>;
 }
