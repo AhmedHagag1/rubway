@@ -1,0 +1,9 @@
+{
+  "name": "RUBWAY",
+  "short_name": "RUBWAY",
+  "description": "تحويل الأموال بين مصر وروسيا",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0D1B2A",
+  "theme_color": "#1E3A8A"
+}

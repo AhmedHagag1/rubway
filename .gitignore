@@ -1,0 +1,13 @@
+.env
+.env.*
+!.env.example
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+node_modules/
+.next/
+out/
+backend/uploads/receipts/*
+!backend/uploads/receipts/.gitkeep
+.DS_Store
