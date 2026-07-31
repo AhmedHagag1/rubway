@@ -205,28 +205,23 @@ def get_market_rate() -> tuple[Decimal, datetime]:
 
 def get_exchange_rate(
     payment_method: str,
+    db,
 ) -> ExchangeRateResult:
-    normalized_method = normalize_payment_method(
-        payment_method
-    )
+    from app.services.pricing_service import get_or_create_pricing
 
-    market_rate, updated_at = get_market_rate()
+    normalized_method = normalize_payment_method(payment_method)
+    setting = get_or_create_pricing(db)
 
-    markup = PAYMENT_METHOD_MARKUPS[
-        normalized_method
-    ]
-
-    customer_rate = (
-        market_rate + markup
-    ).quantize(
-        RATE_PRECISION,
-        rounding=ROUND_HALF_UP,
-    )
+    customer_rate = Decimal(str(
+        setting.instapay_rate
+        if normalized_method == "instapay"
+        else setting.vodafone_rate
+    )).quantize(RATE_PRECISION, rounding=ROUND_HALF_UP)
 
     return ExchangeRateResult(
-        market_rate=market_rate,
+        market_rate=customer_rate,
         customer_rate=customer_rate,
         payment_method=normalized_method,
-        source="exchangerate-api",
-        updated_at=updated_at,
+        source="manual-admin",
+        updated_at=setting.updated_at,
     )
