@@ -415,10 +415,10 @@ export default function HomePage() {
     try {
       await addRecipientDetails(transfer.id, {
         recipient_name: recipientName.trim(),
-        recipient_phone: recipientPhone.trim() || null,
-        bank_name: bankName.trim() || null,
-        card_number: cardNumber.trim() || null,
-        account_number: accountNumber.trim() || null,
+        recipient_phone: recipientPhone.trim(),
+        bank_name: bankName.trim() ,
+        card_number: cardNumber.trim() ,
+        account_number: accountNumber.trim(),
         sbp_phone: sbpPhone.trim() || null,
       });
 
