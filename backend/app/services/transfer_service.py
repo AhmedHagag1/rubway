@@ -114,8 +114,9 @@ def create_quote(
     quote_data: TransferQuoteRequest,
 ) -> dict:
     rate_result = get_exchange_rate(
-        quote_data.payment_method
-    )
+    payment_method=quote_data.payment_method,
+    db=db,
+)
 
     rub_amount, egp_amount = calculate_amounts(
         rub_amount=quote_data.rub_amount,
