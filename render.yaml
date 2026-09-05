@@ -13,7 +13,7 @@ services:
         fromDatabase:
           name: rubway-db
           property: connectionString
-      - key: SECRET_KEY
+      - key: JWT_SECRET_KEY
         generateValue: true
       - key: FRONTEND_URL
         sync: false
@@ -24,6 +24,10 @@ services:
       - key: TELEGRAM_BOT_TOKEN
         sync: false
       - key: TELEGRAM_CHAT_ID
+        sync: false
+      - key: TELEGRAM_WEBHOOK_SECRET
+        sync: false
+      - key: BACKEND_PUBLIC_URL
         sync: false
 
 databases:
