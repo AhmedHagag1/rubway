@@ -97,7 +97,11 @@ export default function PaymentAccountsPage() {
   }, [router]);
 
   useEffect(() => {
-    void loadAccounts();
+    const loadTimer = window.setTimeout(() => {
+      void loadAccounts();
+    }, 0);
+
+    return () => window.clearTimeout(loadTimer);
   }, [loadAccounts]);
 
   const totals = useMemo(() => ({
