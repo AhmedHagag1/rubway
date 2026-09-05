@@ -1,6 +1,6 @@
 # RUBWAY
 
-Full-stack web application for managing an **EGP → RUB transfer workflow**, built as a private software project by Ahmed Haggag.
+Full-stack web application for managing an **EGP → RUB transfer workflow**, built as a software-engineering prototype by Ahmed Haggag.
 
 RUBWAY combines a customer-facing Next.js interface with a FastAPI backend, PostgreSQL persistence, an admin workflow, pricing configuration, receipt handling and Telegram-based operational controls.
 
